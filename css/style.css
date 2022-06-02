@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #1D1D1D;
+    width: 100%;
+    height: 100vh;
+}
+
+header{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto;
+    column-gap: 50px;
+    row-gap: 50px;
+    perspective: 1000px;
+}
+
+.card{
+    display: flex;
+    width: 7rem;
+    height: 163.5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;    
+    transition: transform 0.9s;    
+}
+
+.card:active{
+    transform: scale(0.9);
+    transition: transform 0.5s;
+}
+
+.card-front{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    box-shadow: 3px 8px 16px #888888;
+    cursor: pointer;       
+    transform: rotateY(180deg);
+    backface-visibility: hidden; 
+}
+
+.card-back{
+    width: 100%;
+    height:100%;
+    position: absolute; 
+    backface-visibility: hidden;
+    cursor: pointer;
+    animation: boxShadowMove 3s ease-in-out infinite; 
+}
+
+.card.flip{
+    transform: rotateY(180deg);
+}
+
+.container-modal{
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: display 2s;   
+}
+
+.inicialpage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.inicialpage a{
+    border: 2px solid #fff;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 30px; 
+    cursor: pointer;  
+    text-decoration: none; 
+}
+
+
+.inicialpage a:hover{
+    transform: scale(1.05);
+}
+
+.modal{
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: #fff;
+    border-radius: 20px;   
+}
+
+.modal button{
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    background-image: linear-gradient(45deg, #7F7676, #000);
+    color: #fff;
+    border-radius: 20px;
+    filter:brightness(0.5);
+    transition: filter 0.3s;
+}
+
+.modal button:hover{
+    filter: unset;
+}
+
+.hidden{
+    display: none;    
+}
+
+@keyframes boxShadowMove{
+    0%{
+        box-shadow: 3px 8px 16px #fff;
+    }
+    50%{
+        box-shadow: 3px 8px 16px #888888;
+    }
+    100%{
+        box-shadow: 3px 8px 16px #fff;
+    }
+}
